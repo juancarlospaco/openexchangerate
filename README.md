@@ -33,7 +33,14 @@ with client as prices:  # Context Manager support.
 ```
 
 
-# Description of functions
+# Tests
+
+```
+python -m unittest tests.py --verbose
+```
+
+
+# Description of OpenExchangeRates
 
 ##### OpenExchangeRates
 <details>
@@ -57,7 +64,7 @@ with client as prices:  # Context Manager support.
 
 **Dependencies:** None.
 
-**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/__init__.py
+**Source Code file:** https://github.com/juancarlospaco/openexchangerate/blob/master/openexchangerate.py
 
 | State              | OS          | Description |
 | ------------------ |:-----------:| -----------:|
