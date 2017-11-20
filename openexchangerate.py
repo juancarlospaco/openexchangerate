@@ -21,6 +21,7 @@ __author__ = "Juan Carlos"
 __email__ = "juancarlospaco@gmail.com"
 __contact__ = "https://t.me/juancarlospaco"
 __maintainer__ = "Juan Carlos"
+__url__ = "https://github.com/juancarlospaco/openexchangerate#openexchangerate"
 __all__ = ("OpenExchangeRatesClient", )
 
 
