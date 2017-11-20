@@ -1,7 +1,7 @@
 # openexchangerate
 
 OpenExchangeRates API client for Python 3.7+, worldwide exchange prices + Bitcoin price,
-can be used as context manager or iterator, namedtuple and dict outputs.
+can be used as context manager or iterator, namedtuple and dict outputs. No dependencies.
 
 
 ![screenshot](openexchangerates.png)
@@ -12,6 +12,7 @@ can be used as context manager or iterator, namedtuple and dict outputs.
 ```bash
 pip install openexchangerate
 ```
+
 
 # Use
 
@@ -53,6 +54,8 @@ with client as prices:  # Context Manager support.
 **Keyword Arguments:** None.
 
 **Returns:** namedtuple.
+
+**Dependencies:** None.
 
 **Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/__init__.py
 
