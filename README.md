@@ -1,2 +1,71 @@
 # openexchangerate
-OpenExchangeRates API client for Python 3.7+, worldwide exchange prices + Bitcoin price, can be used as context manager or iterator, namedtuple and dict outputs.
+
+OpenExchangeRates API client for Python 3.7+, worldwide exchange prices + Bitcoin price,
+can be used as context manager or iterator, namedtuple and dict outputs.
+
+
+![screenshot](openexchangerates.png)
+
+
+# Install
+
+```bash
+pip install openexchangerate
+```
+
+# Use
+
+```python
+from openexchangerate import OpenExchangeRates
+
+client = OpenExchangeRates(api_key="21e7c27676972")
+
+client.latest().namedtuple      # .dict for Dictionary.
+client.currencies().namedtuple  # .frozendict for Inmutable Dictionary.
+
+for name, price in client:  # Iterator support.
+    print(name, price)
+
+with client as prices:  # Context Manager support.
+    print(prices.frozendict)
+
+```
+
+
+# Description of functions
+
+##### OpenExchangeRates
+<details>
+
+`openexchangerate.OpenExchangeRates(api_key: str, timeout: int=60, use_float: bool=True,
+             round_float: bool=True, base: str='USD', local_base: str=None)`
+
+**Description:** Returns namedtuple or dict with current international exchange prices and Bitcoin price.
+
+**Arguments:**
+- `api_key` Your API Key, [you can get one for Free here](https://openexchangerates.org/account/app-ids), string type.
+- `timeout` Timeout on Seconds for network connections, integer type, optional.
+- `use_float` `True` for `float`, `False` for `decimal.Decimal`, boolean type, optional.
+- `round_float` `True` to round floats to 2 decimals, using `round(float, 2)`, boolean type, optional.
+- `base` Base currency, **Only for Pay accounts!**, defaults to `"USD"`, string type, optional.
+- `local_base` Local Base currency, for Free accounts, to calculate values locally (offline), string type, optional.
+
+**Keyword Arguments:** None.
+
+**Returns:** namedtuple.
+
+**Source Code file:** https://github.com/juancarlospaco/anglerfish/blob/master/anglerfish/__init__.py
+
+| State              | OS          | Description |
+| ------------------ |:-----------:| -----------:|
+| :white_check_mark: | **Linux**   | Works Ok    |
+| :white_check_mark: | **Os X**    | Works Ok    |
+| :white_check_mark: | **Windows** | Works Ok    |
+
+**Usage Example:**
+
+```python
+>>> from openexchangerate import OpenExchangeRates
+>>> OpenExchangeRates("21e7c27676972").latest()
+```
+</details>
