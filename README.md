@@ -1,7 +1,7 @@
 # openexchangerate
 
-OpenExchangeRates API client for Python 3.7+, worldwide exchange prices + Bitcoin price,
-can be used as context manager or iterator, namedtuple and dict outputs. No dependencies. Float or Decimal. Optional Timeout. Optional round. 1 file.
+OpenExchangeRates API client for Python 3.7+, worldwide exchange prices + Bitcoin price.
+Can be used as context manager or iterator. Namedtuple, dict and HTML outputs. No dependencies. Float or Decimal. Optional Timeout. Optional round. 1 file.
 
 
 ![screenshot](openexchangerates.png)
