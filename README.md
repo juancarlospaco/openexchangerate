@@ -6,6 +6,10 @@ can be used as context manager or iterator, namedtuple and dict outputs. No depe
 
 ![screenshot](openexchangerates.png)
 
+
+![screenshot](temp.png)
+
+
 - [Example HTML output from `OpenExchangeRates(api_key).latest().html`](https://github.com/juancarlospaco/openexchangerate/blob/master/sample.html)
 
 
