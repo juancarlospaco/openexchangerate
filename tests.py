@@ -5,10 +5,9 @@
 """Unittests for OpenExchangeRates Client for Python 3.6+."""
 
 
-import unittest
 import decimal
+import unittest
 from collections import namedtuple
-from datetime import date as Date
 from random import randint
 from types import MappingProxyType as frozendict
 
@@ -44,16 +43,21 @@ class TestOpenExchangeRates(unittest.TestCase):
         "USD": 1}
     }"""
 
+    def setUp(self):
+        self._date: str= f"201{randint(0, 7)}-{randint(1, 12)}-{randint(1, 25)}"
+
+    def tearDown(self):
+        del self._date
+
     @httprettified
     def test_historical_float(self):
         """Tests openexchangerate.OpenExchangeRateClient.historical()."""
         client = openexchangerate.OpenExchangeRates(
             'DUMMY_API_KEY', round_float=bool(randint(0, 1)))
-        date = Date.fromtimestamp(1358150409)
         HTTPretty.register_uri(HTTPretty.GET, client.ENDPOINT_HISTORICAL %
-                               date.strftime("%Y-%m-%d"),
+                               self._date,
                                body=self._FIXTURE_LATEST)
-        historical = client.historical(date)
+        historical = client.historical(self._date)
 
         self.assertIsInstance(historical, tuple)
         self.assertIsInstance(historical.dict, dict)
@@ -73,11 +77,10 @@ class TestOpenExchangeRates(unittest.TestCase):
         """Tests openexchangerate.OpenExchangeRateClient.historical()."""
         client = openexchangerate.OpenExchangeRates('DUMMY_API_KEY',
                                                            use_float=False)
-        date = Date.fromtimestamp(1358150409)
         HTTPretty.register_uri(HTTPretty.GET, client.ENDPOINT_HISTORICAL %
-                               date.strftime("%Y-%m-%d"),
+                               self._date,
                                body=self._FIXTURE_LATEST)
-        historical = client.historical(date)
+        historical = client.historical(self._date)
 
         self.assertIsInstance(historical, tuple)
         self.assertIsInstance(historical.dict, dict)
@@ -157,10 +160,10 @@ class TestOpenExchangeRates(unittest.TestCase):
     @httprettified
     def test_latest_with_local_base_conversion_float(self):
         client = openexchangerate.OpenExchangeRates(
-            'DUMMY_API_KEY', round_float=bool(randint(0, 1)))
+            'DUMMY_API_KEY', round_float=bool(randint(0, 1)), local_base='AED')
         HTTPretty.register_uri(HTTPretty.GET, client.ENDPOINT_LATEST,
                                body=self._FIXTURE_LATEST)
-        latest_local_conversion = client.latest(local_base='AED')
+        latest_local_conversion = client.latest()
 
         self.assertIsInstance(latest_local_conversion, tuple)
         self.assertIsInstance(latest_local_conversion.dict, dict)
@@ -173,11 +176,11 @@ class TestOpenExchangeRates(unittest.TestCase):
 
     @httprettified
     def test_latest_with_local_base_conversion_decimal(self):
-        client = openexchangerate.OpenExchangeRates('DUMMY_API_KEY',
-                                                           use_float=False)
+        client = openexchangerate.OpenExchangeRates(
+            'DUMMY_API_KEY', use_float=False, local_base='AED')
         HTTPretty.register_uri(HTTPretty.GET, client.ENDPOINT_LATEST,
                                body=self._FIXTURE_LATEST)
-        latest_cn = client.latest(local_base='AED')
+        latest_cn = client.latest()
 
         self.assertIsInstance(latest_cn, tuple)
         self.assertIsInstance(latest_cn.dict, dict)
@@ -191,12 +194,11 @@ class TestOpenExchangeRates(unittest.TestCase):
     @httprettified
     def test_historical_with_local_base_conversion_float(self):
         client = openexchangerate.OpenExchangeRates(
-            'DUMMY_API_KEY', round_float=bool(randint(0, 1)))
-        date = Date.fromtimestamp(1358150409)
+            'DUMMY_API_KEY', round_float=bool(randint(0, 1)), local_base='AED')
         HTTPretty.register_uri(HTTPretty.GET, client.ENDPOINT_HISTORICAL %
-                               date.strftime("%Y-%m-%d"),
+                               self._date,
                                body=self._FIXTURE_HISTORICAL)
-        historical_conversion = client.historical(date, local_base='AED')
+        historical_conversion = client.historical(self._date)
 
         self.assertIsInstance(historical_conversion, tuple)
         self.assertIsInstance(historical_conversion.dict, dict)
@@ -209,13 +211,12 @@ class TestOpenExchangeRates(unittest.TestCase):
 
     @httprettified
     def test_historical_with_local_base_conversion_decimal(self):
-        client = openexchangerate.OpenExchangeRates('DUMMY_API_KEY',
-                                                           use_float=False)
-        date = Date.fromtimestamp(1358150409)
+        client = openexchangerate.OpenExchangeRates(
+            'DUMMY_API_KEY', use_float=False, local_base='AED')
         HTTPretty.register_uri(HTTPretty.GET, client.ENDPOINT_HISTORICAL %
-                               date.strftime("%Y-%m-%d"),
+                               "2012-12-12",
                                body=self._FIXTURE_HISTORICAL)
-        histo_cn = client.historical(date, local_base='AED')
+        histo_cn = client.historical("2012-12-12")
 
         self.assertIsInstance(histo_cn, tuple)
         self.assertIsInstance(histo_cn.dict, dict)
@@ -248,12 +249,11 @@ class TestOpenExchangeRates(unittest.TestCase):
     def test_exception_historical(self):
         """Tests openexchangerate.OpenExchangeRateClient.historical()."""
         client = openexchangerate.OpenExchangeRates('DUMMY_API_KEY')
-        date = Date.fromtimestamp(1358150409)
         HTTPretty.register_uri(HTTPretty.GET, client.ENDPOINT_HISTORICAL %
-                               date.strftime("%Y-%m-%d"),
+                               self._date,
                                body=self._FIXTURE_LATEST, status=404)
         with self.assertRaises(Exception):
-            client.historical(date)
+            client.historical(self._date)
 
     def test_inmutable_class_attributes(self):
         """Tests OpenExchangeRateClient can not add attributes."""
