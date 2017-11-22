@@ -21,7 +21,7 @@ from openexchangerate import OpenExchangeRates
 
 client = OpenExchangeRates(api_key="21e7c27676972")
 
-client.latest().namedtuple      # .dict for Dictionary.
+client.latest().namedtuple      # .dict for Dictionary, .html for HTML.
 client.currencies().namedtuple  # .frozendict for Inmutable Dictionary.
 
 for name, price in client:  # Iterator support.
