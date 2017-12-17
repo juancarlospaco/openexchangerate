@@ -46,6 +46,9 @@ python -m unittest --verbose --locals tests.TestOpenExchangeRates
 ```
 
 
+- [Test Templates.](https://gist.github.com/juancarlospaco/040fbe326631e638f2a540fe8c1f2092)
+
+
 # Description of OpenExchangeRates
 
 ##### OpenExchangeRates
@@ -85,3 +88,21 @@ python -m unittest --verbose --locals tests.TestOpenExchangeRates
 
 ```
 </details>
+
+
+### Contributors:
+
+- **Please Star this Repo on Github !**, it helps to show up faster on searchs.
+- [Help](https://help.github.com/articles/using-pull-requests) and more [Help](https://help.github.com/articles/fork-a-repo) and Interactive Quick [Git Tutorial](https://try.github.io).
+- English is the primary default spoken language, unless explicitly stated otherwise *(eg. Dont send Translation Pull Request)*
+- Pull Requests for working passing unittests welcomed.
+
+
+### Licence:
+
+- GNU GPL Latest Version and GNU LGPL Latest Version and any Licence YOU Request via Bug Report.
+
+
+### Ethics and Humanism Policy:
+
+- Religions is not allowed. Contributing means you agree with the COC.
