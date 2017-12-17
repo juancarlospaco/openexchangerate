@@ -1,6 +1,6 @@
 # openexchangerate
 
-OpenExchangeRates API client for Python 3.7+, worldwide exchange prices + Bitcoin price.
+OpenExchangeRates API client for Python 3.7+, worldwide exchange prices + Bitcoin price + Gold price.
 Can be used as context manager or iterator. Namedtuple, dict and HTML outputs.
 No dependencies. Float or Decimal. Optional Timeout. Optional round. 1 file.
 
@@ -67,7 +67,7 @@ python -m unittest --verbose --locals tests.TestOpenExchangeRates
 
 **Keyword Arguments:** None.
 
-**Returns:** namedtuple.
+**Returns:** `collections.namedtuple`.
 
 **Dependencies:** None.
 
