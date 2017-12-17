@@ -34,9 +34,7 @@ with client as prices:  # Context Manager support.
 
 ```
 
-
 ![screenshot](openexchangerates.png)
-
 
 ![screenshot](temp.png)
 
