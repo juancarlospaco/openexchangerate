@@ -1,14 +1,10 @@
 # openexchangerate
 
 OpenExchangeRates API client for Python 3.7+, worldwide exchange prices + Bitcoin price.
-Can be used as context manager or iterator. Namedtuple, dict and HTML outputs. No dependencies. Float or Decimal. Optional Timeout. Optional round. 1 file.
+Can be used as context manager or iterator. Namedtuple, dict and HTML outputs.
+No dependencies. Float or Decimal. Optional Timeout. Optional round. 1 file.
 
-
-![screenshot](openexchangerates.png)
-
-
-![screenshot](temp.png)
-
+![screenshot](https://source.unsplash.com/ir5MHI6rPg0/800x400 "Photo by https://unsplash.com/@agent_illustrateur")
 
 - [Example HTML output from `OpenExchangeRates(api_key).latest().html`](https://github.com/juancarlospaco/openexchangerate/blob/master/sample.html)
 
@@ -39,10 +35,16 @@ with client as prices:  # Context Manager support.
 ```
 
 
+![screenshot](openexchangerates.png)
+
+
+![screenshot](temp.png)
+
+
 # Tests
 
 ```
-python -m unittest tests.py --verbose
+python -m unittest --verbose --locals tests.TestOpenExchangeRates
 ```
 
 
@@ -51,13 +53,12 @@ python -m unittest tests.py --verbose
 ##### OpenExchangeRates
 <details>
 
-`openexchangerate.OpenExchangeRates(api_key: str, timeout: int=60, use_float: bool=True,
-             round_float: bool=True, base: str='USD', local_base: str=None)`
+`openexchangerate.OpenExchangeRates(api_key: str, timeout: int=60, use_float: bool=True, round_float: bool=True, base: str='USD', local_base: str=None)`
 
 **Description:** Returns namedtuple or dict with current international exchange prices and Bitcoin price.
 
 **Arguments:**
-- `api_key` Your API Key, [you can get one for Free here](https://openexchangerates.org/account/app-ids), string type.
+- `api_key` Your API Key, [you can get one API Key for Free](https://openexchangerates.org/account/app-ids), string type.
 - `timeout` Timeout on Seconds for network connections, integer type, optional.
 - `use_float` `True` for `float`, `False` for `decimal.Decimal`, boolean type, optional.
 - `round_float` `True` to round floats to 2 decimals, using `round(float, 2)`, boolean type, optional.
@@ -83,5 +84,6 @@ python -m unittest tests.py --verbose
 ```python
 >>> from openexchangerate import OpenExchangeRates
 >>> OpenExchangeRates("21e7c27676972").latest()
+
 ```
 </details>
