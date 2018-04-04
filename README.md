@@ -4,7 +4,7 @@ OpenExchangeRates API client for Python 3.7+, worldwide exchange prices + Bitcoi
 Can be used as context manager or iterator. Namedtuple, dict and HTML outputs.
 No dependencies. Float or Decimal. Optional Timeout. Optional round. 1 file.
 
-![screenshot](https://source.unsplash.com/ir5MHI6rPg0/800x400 "Photo by https://unsplash.com/@agent_illustrateur")
+![screenshot](https://source.unsplash.com/ir5MHI6rPg0/800x401 "Photo by https://unsplash.com/@agent_illustrateur")
 
 - [Example HTML output from `OpenExchangeRates(api_key).latest().html`](https://github.com/juancarlospaco/openexchangerate/blob/master/sample.html)
 
