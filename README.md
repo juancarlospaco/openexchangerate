@@ -56,7 +56,7 @@ python -m unittest --verbose --locals tests.TestOpenExchangeRates
 
 Cythonized PXD files are provided (but not supported):
 
-- Debian/Ubuntu: `sudo apt-get install build-essential`
+- Debian/Ubuntu: `sudo apt-get install build-essential python-dev`
 - Arch: Compilation its built-in.
 
 ```
