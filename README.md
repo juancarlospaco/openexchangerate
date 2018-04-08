@@ -49,6 +49,31 @@ python -m unittest --verbose --locals tests.TestOpenExchangeRates
 - [Test Templates.](https://gist.github.com/juancarlospaco/040fbe326631e638f2a540fe8c1f2092)
 
 
+# Speed
+
+<details>
+<summary>Maximum performance (C like Speed) for advanced Linux users</summary>
+
+Cythonized PXD files are provided (but not supported):
+
+Debian/Ubuntu: `sudo apt-get install build-essential`
+Arch: Compilation its built-in.
+
+```
+sudo pip install cython
+cython -3 --verbose --no-docstrings python_module.py
+gcc -shared -fPIC -I /usr/include/python3.6 -o python_module.so python_module.c
+```
+Replace `python_module.py`, `python_module.c` and `python_module.so`
+for the file you want to compile for speed up.
+Each `*.py` file you want to compile must have a `*.pxd` in the same folder.
+`/usr/include/python3.6` must exist on your system, check the path.
+[Please check Cython documentation for more info.](https://cython.readthedocs.io)
+This basically translates Python 3 to C and then Compiles C to Binary.
+
+</details>
+
+
 # Description of OpenExchangeRates
 
 ##### OpenExchangeRates
