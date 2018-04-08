@@ -52,7 +52,7 @@ python -m unittest --verbose --locals tests.TestOpenExchangeRates
 # Speed
 
 <details>
-<summary>Maximum performance (C like Speed) for advanced Linux users</summary>
+<summary>Maximum performance for advanced Linux users.</summary>
 
 Cythonized PXD files are provided (but not supported):
 
@@ -72,7 +72,8 @@ Each `*.py` file you want to compile must have a `*.pxd` in the same folder.
 
 `/usr/include/python3.6` must exist on your system, check the path.
 
-This basically translates Python 3 to C and then Compiles C to Binary.
+This basically translates Python 3 to C and then Compiles C to Binary,
+then you can import the generated `*.so` module as a normal Python module.
 
 [Please check Cython documentation for more info.](https://cython.readthedocs.io)
 
