@@ -30,7 +30,6 @@
 ALL THE CONFIG LIVES IN SETUP.CFG,PLEASE EDIT THERE,KEEP IT SIMPLE AND CLEAN."""
 
 
-import os
 import atexit
 
 from setuptools import setup
@@ -50,6 +49,7 @@ MODULES2CYTHONIZE = ("openexchangerate.py", )
 def post_install_cythonize():
     """Compile *.PY to *.SO with Cython,delete *.PYC,*.C,*.PY if sucessful."""
     import sys
+    import os
     from pathlib import Path
     from shutil import which, rmtree
     from subprocess import run
