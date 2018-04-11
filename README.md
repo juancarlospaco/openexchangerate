@@ -49,37 +49,6 @@ python -m unittest --verbose --locals tests.TestOpenExchangeRates
 - [Test Templates.](https://gist.github.com/juancarlospaco/040fbe326631e638f2a540fe8c1f2092)
 
 
-# Speed
-
-<details>
-<summary>Maximum performance for advanced Linux users.</summary>
-
-Cythonized PXD files are provided (but not supported):
-
-- Debian/Ubuntu: `sudo apt-get install build-essential python-dev`
-- Arch: Compilation its built-in.
-
-```
-sudo pip install cython
-cython -3 --verbose --no-docstrings python_module.py
-gcc -shared -fPIC -I /usr/include/python3.6 -o python_module.so python_module.c
-```
-
-Replace `python_module.py`, `python_module.c` and `python_module.so`
-for the file you want to compile for speed up.
-
-Each `*.py` file you want to compile must have a `*.pxd` in the same folder.
-
-`/usr/include/python3.6` must exist on your system, check the path.
-
-This basically translates Python 3 to C and then Compiles C to Binary,
-then you can import the generated `*.so` module as a normal Python module.
-
-[Please check Cython documentation for more info.](https://cython.readthedocs.io)
-
-</details>
-
-
 # Description of OpenExchangeRates
 
 ##### OpenExchangeRates
@@ -118,6 +87,28 @@ then you can import the generated `*.so` module as a normal Python module.
 >>> OpenExchangeRates("21e7c27676972").latest()
 
 ```
+</details>
+
+
+# Speed
+
+<details>
+<summary>Maximum performance for advanced Linux users.</summary>
+
+```
+sudo pip install cython
+```
+
+Cython basically translates Python 3 to C and then Compiles C to Binary,
+then you can import the generated `*.so` module as a normal Python module.
+
+Its 100% Optional, but recommend. We check that Cython Compiles on Travis.
+
+You dont have to learn anything about Cython, it just works automatically.
+The Packages on PyPi dont have any `*.c`, `*.cpp`, `*.pyc`, `*.so`.
+
+[Cython is used by lots of projects and companies.](https://github.com/cython/cython/wiki/projects#projects-using-cython) [Please check Cython documentation for more info.](https://cython.readthedocs.io)
+
 </details>
 
 
