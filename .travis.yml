@@ -6,7 +6,8 @@ python:
 
 
 install:
-  - pip install httpretty --quiet
+  # - pip install httpretty --quiet
+  - pip install cython --quiet
   - pip install .
 
 
@@ -14,7 +15,8 @@ before_script: rm --recursive --force --verbose *.py[cod]
 
 
 script:
-  - python -m unittest --verbose --locals tests.TestOpenExchangeRates
+  - python setup.py bdist_egg bdist_wheel --universal sdist --formats=zip
+  # - python -m unittest --verbose --locals tests.TestOpenExchangeRates
 
 
 notifications:
