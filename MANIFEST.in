@@ -1,0 +1,2 @@
+include openexchangerate.py
+include openexchangerate.pxd
